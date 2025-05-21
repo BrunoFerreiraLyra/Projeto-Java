@@ -3,7 +3,7 @@ package perigo;
 import personagem.Aventureiro;
 
 public class Cacto extends Perigo {
-    private final int dano = 30;
+    private final int dano = 25;
 
     public Cacto(int x, int y) {
         super(x, y);
