@@ -34,7 +34,7 @@ public class Main {
        Aventureiro aventureiro = new Aventureiro(nome, inicioX, inicioY);
 labirinto.posicionarAventureiro(inicioX, inicioY);
 
-int turnos = 0;  // contador de jogadas
+int turnos = 0;  
 int menorCaminho = dificuldade.getLinhas() + dificuldade.getColunas() - 4;
 
 while (true) {
@@ -43,7 +43,7 @@ while (true) {
 
 
     aventureiro.reduzirVida(5);
-    if (aventureiro.getVida() <= 0) {
+    if (aventureiro.getVida() <= -5) {
         System.out.println("Você perdeu todas as vidas! Fim de jogo.");
         break;
     }
@@ -60,7 +60,7 @@ while (true) {
         labirinto.verificarItem(aventureiro);
         labirinto.posicionarAventureiro(aventureiro.getPosX(), aventureiro.getPosY());
 
-        turnos++;  // incrementa após jogada válida
+        turnos++;  
 
         // Verifica se encontrou o tesouro
         if (labirinto.getElemento(aventureiro.getPosX(), aventureiro.getPosY()) == 'T') {
