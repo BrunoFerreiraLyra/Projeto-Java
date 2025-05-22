@@ -8,7 +8,7 @@ public class Aventureiro {
 
     public Aventureiro(String nome, int posX, int posY) {
         this.nome = nome;
-        this.vida = 120;
+        this.vida = 100;
         this.posX = posX;
         this.posY = posY;
     }
@@ -22,7 +22,7 @@ public class Aventureiro {
     }
 
     public void setVida(int vida) {
-        this.vida = Math.min(vida, 120);
+        this.vida = Math.min(vida, 100);
     }
 
     public void reduzirVida(int quantidade) {
