@@ -108,20 +108,30 @@ public class Labirinto {
         }
     }
 
-    public void verificarItem(Aventureiro aventureiro) {
-        Item encontrado = null;
-        for (Item item : itens) {
-            if (item.getX() == aventureiro.getPosX() && item.getY() == aventureiro.getPosY()) {
-                item.aplicarEfeito(aventureiro);
-                encontrado = item;
-                break;
+    public boolean verificarItem(Aventureiro aventureiro) {
+    Item encontrado = null;
+    for (Item item : itens) {
+        if (item.getX() == aventureiro.getPosX() && item.getY() == aventureiro.getPosY()) {
+            item.aplicarEfeito(aventureiro);
+            encontrado = item;
+
+            // Verifica se é um tesouro
+            if (item instanceof Tesouro) {
+                itens.remove(item);
+                limparCelula(item.getX(), item.getY());
+                return true;
             }
-        }
-        if (encontrado != null) {
-            itens.remove(encontrado);
-            limparCelula(encontrado.getX(), encontrado.getY());
+
+            break;
         }
     }
+    if (encontrado != null) {
+        itens.remove(encontrado);
+        limparCelula(encontrado.getX(), encontrado.getY());
+    }
+    return false;
+}
+
 
     public void verificarPerigo(Aventureiro aventureiro) {
         Perigo encontrado = null;
