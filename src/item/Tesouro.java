@@ -9,8 +9,6 @@ public class Tesouro extends Item {
 
     @Override
     public void aplicarEfeito(Aventureiro aventureiro) {
-        System.out.println("Você encontrou o tesouro!");
-        System.out.println("Parabéns, " + aventureiro.getNome() + "! Você venceu o jogo!");
-        System.exit(0); 
+        
     }
 }
