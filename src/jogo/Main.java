@@ -73,8 +73,7 @@ public class Main {
                 System.out.println("Erro: " + e.getMessage());
             }
         }
-
-        // ⬇ Mostra resultado da vitória após sair do loop
+        
         if (venceu) {
             labirinto.imprimirLabirinto();
             ExibidorStatus.mostrarStatus(aventureiro, turnos);
