@@ -14,7 +14,7 @@
 - O jogo é encerrado com vitória quando o aventureiro chega ao Tesouro ( *T* )
 - O jogo é encerrado com derrota caso a vida chege a 0
 ### Como jogar
-No começo é perguntado o nome do aventureiro, logo depois o jogador tem a opção de escolher entre 3 dificuldades, Fácil, Médio e Difícil. Após escolher um nome e dificuldade o labirinto é gerado com a posição do Aventureio e do Tesouro fixas, possibilitando um caminho a ser seguido. Para se movimentar o jogador deve escolher entre as teclas WASD para escolher a direção do movimento e inserir a entrada. (W -> cima) (A -> esquerda) (S -> baixo) (D -> direita). O mapa é atualizado a cada jogada.
+No começo é perguntado o nome do aventureiro, logo depois o jogador tem a opção de escolher entre 3 dificuldades, Fácil, Médio e Difícil. Após escolher um nome e dificuldade, o aventureiro sempre inicia no canto superior esquerdo do mapa e o tesouro está posicionado no canto inferior direito, possibilitando um caminho a ser seguido. Para se movimentar o jogador deve escolher entre as teclas WASD para escolher a direção do movimento e inserir a entrada. (W -> cima) (A -> esquerda) (S -> baixo) (D -> direita). O mapa é atualizado a cada jogada.
 ### Funcionalidades do jogo
 - Escolher o nome
 - Escolha de dificuldade (a dificuldade implica no tamanho do labirinto, quanto maior a dificuldade maior o tamanho do labirinto)
@@ -23,6 +23,15 @@ No começo é perguntado o nome do aventureiro, logo depois o jogador tem a opç
 - Exibidor dos status do jogador sendo atualizados e exibidos a cada jogada
 - Tratamento de erro para comandos inválidos
 - Easter Egg: Caso o jogador vença o labirinto em um número específico de rodadas é exibida uma mensagem de vitória especial
+##### Legenda do jogo:
+- '#' - Parede, determina os limites do labirinto
+- ' ' - Caminho livre, espaço livre para movimentação
+- '*' - Cacto, Perigo
+- 'Á' - Água, Item de cura
+- 'T' - Tesouro, O objetivo principal
+- 'O' - Aventureiro, A peça que você controla 
+
+
 #### Screen shots
 ##### Interface inicial da escolha do nome e dificuldade:
 
