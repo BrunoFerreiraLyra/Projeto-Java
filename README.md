@@ -69,6 +69,9 @@ No começo é perguntado o nome do aventureiro, logo depois o jogador tem a opç
 
 ![image](https://github.com/user-attachments/assets/be767ff4-7d7b-4793-9834-adcb2ed9cfc5)
 
+Substituir Turnos por temporizador
+Adicionar Menu pra poder re jogar
+Adicionar Raking
 
 
 
