@@ -36,25 +36,29 @@ No começo é perguntado o nome do aventureiro, logo depois o jogador tem a opç
 
 
 #### Screen shots
-##### Interface inicial da escolha do nome e dificuldade:
+##### Menu Principal
 
-![image](https://github.com/user-attachments/assets/1b6d4977-34bf-43a7-a251-b5f168448745)
+![image](https://github.com/user-attachments/assets/f9a5052b-923d-4e0d-8215-b1c203e10cc8)
 
-##### Interface geral do jogo, Labirinto na dificuldade fácil e exibidor de status:
+##### Menu de escolha de dificuldade:
 
-![image](https://github.com/user-attachments/assets/c86e5292-fb2a-4506-aa18-1805da9eaf5c)
+![image](https://github.com/user-attachments/assets/21f6f1b7-ac9c-4d57-b48a-ccb4f0bf67dc)
 
-##### Mensagem para quando o aventureiro interage com o item Água:
+##### Interface geral do jogo, labirinto na dificuldade fácil e exibição dos status:
 
-![image](https://github.com/user-attachments/assets/458d9914-df46-4f8e-a917-c737d3e8106b)
+![image](https://github.com/user-attachments/assets/bd8696d4-b378-4adb-851b-06c4fd0ac1fe)
+
+##### Mensagem para quando o aventureiro interage com o item Água: 
+
+![image](https://github.com/user-attachments/assets/a2f06494-44d5-421b-8cc0-fc790ff45fed)
 
 ##### Mensagem para quando o aventureiro interage com o item Cacto:
 
-![image](https://github.com/user-attachments/assets/87f3e570-358b-49c5-a243-504657f28e15)
+![image](https://github.com/user-attachments/assets/137020d2-c06a-4cfc-a376-702d4f88ff79)
 
-##### Imagem da mensagem de derrota:
+##### Imagem da mensagem de derrota: 
 
-![image](https://github.com/user-attachments/assets/536809ba-4951-4db0-916f-55afc5c64a25)
+![image](https://github.com/user-attachments/assets/f702db18-c837-42be-b35e-2b700c182af7)
 
 ##### Exemplo de labirinto na dificuldade Média:
 
@@ -64,18 +68,17 @@ No começo é perguntado o nome do aventureiro, logo depois o jogador tem a opç
 
 ![image](https://github.com/user-attachments/assets/6e730b7d-43fa-4905-88da-efd1fb7ed01c)
 
-##### Imagem da mensagem de vitoria:
+##### Imagem da mensagem de vitoria: 
 
-![image](https://github.com/user-attachments/assets/41a6df18-2f0f-4d95-8daf-38e6d8b76ebf)
+![image](https://github.com/user-attachments/assets/9375f7c7-2f6b-483b-b97e-6ceb2a08d262)
 
 ##### Imagem de mensagem da vitória perfeita (easter egg):
 
-![image](https://github.com/user-attachments/assets/be767ff4-7d7b-4793-9834-adcb2ed9cfc5)
+![image](https://github.com/user-attachments/assets/a1a6bf39-481e-443e-a4ad-51c1ec11c0df)
 
-Substituir Turnos por temporizador
-Adicionar Menu pra poder re jogar
-Adicionar Raking
+##### Vizualização do Ranking e encerramento do programa, Ranking exibe nome e o tempo
 
+![image](https://github.com/user-attachments/assets/95f35c27-a497-40e6-846c-44c385a794e2)
 
 
 
