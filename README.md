@@ -10,7 +10,7 @@
 - Paredes ( *#* ) determinam o limite do mapa
 - A cada Água ( *Á* ) que o jogador coleta ele ganha 15 de vida
 - Se o jogador encostar em Cacto ( * ) ele perde 30 de vida
-- observação: quando o jogador coleta um item, seja Cacto ou Água, ele não perde os 5 de vida causado pelo movimento
+- observação: quando o jogador coleta um item, seja Cacto ou Água, ele não perde os 5 de vida causado pelo movimento naquela jogada
 - O jogo é encerrado com vitória quando o aventureiro chega ao Tesouro ( *T* )
 - O jogo é encerrado com derrota caso a vida chege a 0
 ### Como jogar
@@ -20,9 +20,12 @@ No começo é perguntado o nome do aventureiro, logo depois o jogador tem a opç
 - Escolha de dificuldade (a dificuldade implica no tamanho do labirinto, quanto maior a dificuldade maior o tamanho do labirinto)
 - Labirinto gerado aleatóriamente 
 - Geração aleatória de Itens e Perigos proporcional a dificuldade
+- Exibição do tempo de jogo em tempo real
+- Sistema de menu para iniciar novas partidas ou visualizar o ranking
+- Ranking com nome e tempo de conclusão para cada dificuldade
 - Exibidor dos status do jogador sendo atualizados e exibidos a cada jogada
 - Tratamento de erro para comandos inválidos
-- Easter Egg: Caso o jogador vença o labirinto em um número específico de rodadas é exibida uma mensagem de vitória especial
+- Easter Egg: Se o jogador alcançar o tesouro em determinado tempo, é exibida uma mensagem especial de vitória perfeita (esse tempo varia de acordo com a dificuldade)
 ##### Legenda do jogo:
 - '#' - Parede, determina os limites do labirinto
 - ' ' - Caminho livre, espaço livre para movimentação
