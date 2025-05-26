@@ -42,7 +42,6 @@ public class Labirinto {
             }
         }
 
-        // Adiciona cactos aleatórios
         int qtdCactos = linhas * colunas / 10;
         for (int i = 0; i < qtdCactos; i++) {
             int x, y;
@@ -55,11 +54,9 @@ public class Labirinto {
             mapa[x][y] = CACTO;
         }
 
-        // Calcula distância mínima entre aventureiro e tesouro
         int distanciaMinima = linhas + colunas - 4;
         int qtdAgua = Math.max(5, distanciaMinima / 5); // ajuste proporcional
 
-        // Gera águas
         for (int i = 0; i < qtdAgua; i++) {
             int x, y;
             do {
@@ -115,7 +112,6 @@ public class Labirinto {
             item.aplicarEfeito(aventureiro);
             encontrado = item;
 
-            // Verifica se é um tesouro
             if (item instanceof Tesouro) {
                 itens.remove(item);
                 limparCelula(item.getX(), item.getY());
