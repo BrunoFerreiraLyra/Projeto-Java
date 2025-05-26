@@ -1,7 +1,7 @@
 package labirinto;
 
-import personagem.Aventureiro;
 import java.util.Scanner;
+import personagem.Aventureiro;
 
 public class ControleMovimento {
     private final Scanner scanner = new Scanner(System.in);
