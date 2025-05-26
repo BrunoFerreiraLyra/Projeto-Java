@@ -3,13 +3,34 @@ package jogo;
 import java.util.Scanner;
 import labirinto.*;
 import personagem.*;
+import ranking.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ControleMovimento controle = new ControleMovimento();
+        Menu menu = new Menu();
+        Ranking ranking = new Ranking();
 
-        System.out.println("Bem-vindo ao Areias do Destino!");
+        while (true) {
+            int escolhaMenu = menu.exibirMenuInicial();
+
+            if (escolhaMenu == 0) {
+                System.out.println("Encerrando o jogo. Até a próxima!");
+                break;
+            }
+
+            if (escolhaMenu == 2) {
+                ranking.mostrarRanking();
+                continue;
+            }
+
+            iniciarJogo(scanner, menu, ranking);
+        }
+    }
+
+    public static void iniciarJogo(Scanner scanner, Menu menu, Ranking ranking) {
+        ControleMovimento controle = new ControleMovimento();
+        Temporizador temporizador = new Temporizador();
 
         System.out.print("Digite o nome do aventureiro: ");
         String nome = scanner.nextLine();
@@ -27,20 +48,14 @@ public class Main {
         }
 
         Labirinto labirinto = LabirintoFactory.criarLabirinto(dificuldade);
+        Aventureiro aventureiro = new Aventureiro(nome, 1, 1);
+        labirinto.posicionarAventureiro(1, 1);
 
-        int inicioX = 1;
-        int inicioY = 1;
-
-        Aventureiro aventureiro = new Aventureiro(nome, inicioX, inicioY);
-        labirinto.posicionarAventureiro(inicioX, inicioY);
-
-        int turnos = 0;
-
-        boolean venceu = false;
+        temporizador.iniciar();
 
         while (true) {
             labirinto.imprimirLabirinto();
-            ExibidorStatus.mostrarStatus(aventureiro, turnos);
+            ExibidorStatus.mostrarStatus(aventureiro, temporizador);
 
             aventureiro.reduzirVida(5);
             if (aventureiro.getVida() <= -5) {
@@ -58,14 +73,29 @@ public class Main {
                 aventureiro.mover(novaPos[0], novaPos[1]);
 
                 labirinto.verificarPerigo(aventureiro);
-                boolean encontrouTesouro = labirinto.verificarItem(aventureiro);
+                boolean venceu = labirinto.verificarItem(aventureiro);
 
                 labirinto.posicionarAventureiro(aventureiro.getPosX(), aventureiro.getPosY());
 
-                turnos++;
+                if (venceu) {
+                    temporizador.finalizar();
+                    long tempoFinal = temporizador.getDuracaoEmSegundos();
+                    System.out.println("\nParabéns, " + aventureiro.getNome() + "! Você encontrou o tesouro!");
+                    System.out.println("Tempo total: " + temporizador.formatarTempo());
 
-                if (encontrouTesouro) {
-                    venceu = true;
+                    ranking.adicionarRegistro(aventureiro.getNome(), tempoFinal, dificuldade);
+
+                    boolean vitoriaPerfeita = false;
+                    switch (dificuldade) {
+                        case FACIL: vitoriaPerfeita = tempoFinal <= 10; break;
+                        case MEDIO: vitoriaPerfeita = tempoFinal <= 15; break;
+                        case DIFICIL: vitoriaPerfeita = tempoFinal <= 20; break;
+                    }
+
+                    if (vitoriaPerfeita) {
+                        System.out.println(" Vitória Perfeita! " + aventureiro.getNome() + " dominou as Areias do Destino!");
+                    }
+
                     break;
                 }
 
@@ -73,33 +103,10 @@ public class Main {
                 System.out.println("Erro: " + e.getMessage());
             }
         }
-        
-        if (venceu) {
-            labirinto.imprimirLabirinto();
-            ExibidorStatus.mostrarStatus(aventureiro, turnos);
 
-            System.out.println("Parabéns, " + aventureiro.getNome() + "! Você encontrou o tesouro!");
-
-            boolean vitoriaPerfeita = false;
-            switch (dificuldade) {
-                case FACIL:
-                    vitoriaPerfeita = turnos <= 22;
-                    break;
-                case MEDIO:
-                    vitoriaPerfeita = turnos <= 28;
-                    break;
-                case DIFICIL:
-                    vitoriaPerfeita = turnos <= 34;
-                    break;
-            }
-
-            if (vitoriaPerfeita) {
-                System.out.println("Vitória Perfeita! " + aventureiro.getNome() + " dominou as Areias do Destino!");
-            }
-
-            System.out.println("Total de turnos: " + turnos);
+        if (!menu.desejaJogarNovamente()) {
+            System.out.println("Encerrando o jogo. Até a próxima!");
+            System.exit(0);
         }
-
-        System.out.println("Obrigado por jogar!");
     }
 }
