@@ -101,3 +101,12 @@ Classe que representa um item de cura. Quando coletado pelo aventureiro, recuper
 Item que finaliza o jogo com vitória. Sua presença representa o objetivo principal da partida. Ao ser coletado, exibe uma mensagem de sucesso e registra o tempo no ranking.
 #####  Aplicações da Programação Orientada a Objetos
 Encapsulamento: cada classe é responsável apenas por seu comportamento e interação com o aventureiro, mantendo responsabilidade única.
+### personagem
+Este pacote contém a classe responsável por armazenar e manipular os dados do jogador principal, o aventureiro. Toda a lógica relacionada à posição, movimentação e controle da vida está encapsulada aqui.
+#### Aventureiro.java
+Classe que representa o personagem controlado pelo jogador. Armazena os atributos nome, vida, e posição atual no labirinto. Contém métodos para mover o personagem, curar, reduzir vida e acessar ou modificar os dados essenciais.
+#####  Aplicações da Programação Orientada a Objetos
+Encapsulamento: os atributos são privados, e só podem ser acessados ou modificados através de métodos públicos (getVida(), curar(), reduzirVida(), etc.)
+### ranking
+O pacote ranking é responsável por armazenar, organizar e exibir os resultados dos jogadores que venceram o jogo, levando em conta o tempo de conclusão e a dificuldade escolhida.
+#### Registro.java 
