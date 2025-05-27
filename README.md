@@ -82,4 +82,22 @@ No começo é perguntado o nome do aventureiro, logo depois o jogador tem a opç
 
 ## Explicação do código
 O projeto foi desenvolvido com base nos princípios da programação orientada a objetos e estruturado em pacotes que agrupam classes com responsabilidades semelhantes. Essa organização modular permite uma separação clara das funcionalidades do jogo, facilitando a manutenção, o entendimento do código e a expansão futura do sistema. Ao dividir o projeto em pacotes, obtém-se maior modularização, permitindo que cada parte do código atue de forma independente e focada. Isso também proporciona reutilização de componentes, como itens e perigos, que podem ser manipulados por diferentes partes do sistema sem repetição. Além disso, essa abordagem garante maior escalabilidade, permitindo adicionar novas funcionalidades com facilidade, e melhora a manutenibilidade, já que erros e ajustes podem ser resolvidos de forma localizada, sem afetar o restante da aplicação. A seguir, cada pacote é descrito individualmente, destacando sua função, a lógica interna das classes e como os conceitos de orientação a objetos foram aplicados. 
-
+### perigo 
+Este pacote é responsável pelos elementos que causam dano ao aventureiro durante sua jornada.
+#### Perigo.java 
+Classe abstrata que define a estrutura base de todos os perigos do jogo. Ela possui os atributos x e y (posição no mapa) e o método abstrato aplicarEfeito(Aventureiro aventureiro), que deve ser implementado por todas as subclasses.
+#### Cacto.java
+Classe concreta que estende Perigo. Representa o obstáculo cacto, que ao ser tocado reduz a vida do aventureiro. Implementa o método aplicarEfeito, causando um dano de 30 pontos.
+##### Aplicações da Programação Orientada a Objetos
+Herança: a classe Cacto herda atributos e métodos de Perigo, reutilizando código e centralizando a lógica comum.
+Polimorfismo: o método aplicarEfeito é chamado de forma genérica, independentemente do tipo específico de perigo. Isso permite que o labirinto trate diferentes perigos da mesma forma, sem precisar conhecer os detalhes de cada um.
+### item
+O pacote item agrupa todos os elementos que auxiliam o jogador ao longo da partida. Ele segue a mesma arquitetura do pacote perigo, utilizando classes abstratas, herança e polimorfismo para organizar os diferentes tipos de itens.
+#### Item.java
+Classe abstrata que define a estrutura básica de todos os itens do jogo. Contém os atributos x e y (posição do item no labirinto) e o método abstrato aplicarEfeito(Aventureiro aventureiro), que precisa ser implementado pelas subclasses.
+#### Agua.java
+Classe que representa um item de cura. Quando coletado pelo aventureiro, recupera 15 pontos de vida. Implementa o método aplicarEfeito, que chama aventureiro.curar(20) e exibe uma mensagem de recuperação.
+#### Tesouro.java
+Item que finaliza o jogo com vitória. Sua presença representa o objetivo principal da partida. Ao ser coletado, exibe uma mensagem de sucesso e registra o tempo no ranking.
+#####  Aplicações da Programação Orientada a Objetos
+Encapsulamento: cada classe é responsável apenas por seu comportamento e interação com o aventureiro, mantendo responsabilidade única.
