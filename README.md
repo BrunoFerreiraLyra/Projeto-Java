@@ -80,5 +80,6 @@ No começo é perguntado o nome do aventureiro, logo depois o jogador tem a opç
 
 ![image](https://github.com/user-attachments/assets/95f35c27-a497-40e6-846c-44c385a794e2)
 
-
+## Explicação do código
+O projeto foi desenvolvido com base nos princípios da programação orientada a objetos e estruturado em pacotes que agrupam classes com responsabilidades semelhantes. Essa organização modular permite uma separação clara das funcionalidades do jogo, facilitando a manutenção, o entendimento do código e a expansão futura do sistema. Ao dividir o projeto em pacotes, obtém-se maior modularização, permitindo que cada parte do código atue de forma independente e focada. Isso também proporciona reutilização de componentes, como itens e perigos, que podem ser manipulados por diferentes partes do sistema sem repetição. Além disso, essa abordagem garante maior escalabilidade, permitindo adicionar novas funcionalidades com facilidade, e melhora a manutenibilidade, já que erros e ajustes podem ser resolvidos de forma localizada, sem afetar o restante da aplicação. A seguir, cada pacote é descrito individualmente, destacando sua função, a lógica interna das classes e como os conceitos de orientação a objetos foram aplicados. 
 
