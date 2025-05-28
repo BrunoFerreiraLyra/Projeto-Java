@@ -157,4 +157,9 @@ Reutilização: Menu e ExibidorStatus também podem ser facilmente reaproveitado
 
 Polimorfismo: Objetos do tipo Item ou Perigo são manipulados de forma genérica. Isso permite aplicar efeitos (aplicarEfeito) sem saber o tipo específico do objeto.
 
+##### Bibliotecas utilizadas:
+java.util.Scanner: Usada para ler entradas do usuário.
 
+java.util.ArrayList: Armazena elementos de forma sequencial, permite adicionar, remover e acessar elementos por índice, e redimensiona automaticamente conforme os elementos são adicionados/removidos.
+
+java.util.Random: Usada para gerar elementos aleatórios.
