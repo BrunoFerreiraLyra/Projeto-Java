@@ -90,6 +90,7 @@ Classe abstrata que define a estrutura base de todos os perigos do jogo. Ela pos
 Classe concreta que estende Perigo. Representa o obstáculo cacto, que ao ser tocado reduz a vida do aventureiro. Implementa o método aplicarEfeito, causando um dano de 30 pontos.
 ##### Aplicações da Programação Orientada a Objetos
 Herança: a classe Cacto herda atributos e métodos de Perigo, reutilizando código e centralizando a lógica comum.
+
 Polimorfismo: o método aplicarEfeito é chamado de forma genérica, independentemente do tipo específico de perigo. Isso permite que o labirinto trate diferentes perigos da mesma forma, sem precisar conhecer os detalhes de cada um.
 ### item
 O pacote item agrupa todos os elementos que auxiliam o jogador ao longo da partida. Ele segue a mesma arquitetura do pacote perigo, utilizando classes abstratas, herança e polimorfismo para organizar os diferentes tipos de itens.
@@ -127,9 +128,13 @@ Enumeração que define três níveis de dificuldade (FÁCIL, MÉDIO, DIFÍCIL),
 A classe ControleMovimento é responsável por capturar os comandos de movimentação inseridos pelo jogador e determinar se o movimento é válido dentro dos limites do labirinto. Ela funciona como um intermediário entre o jogador e o mapa, garantindo que cada ação respeite as regras do ambiente, como não atravessar paredes nem sair das bordas do labirinto. O método lerComando() lê a entrada do jogador, converte para letra maiúscula e verifica se a tecla digitada é válida, lançando uma exceção amigável caso contrário. Já o método calcularNovaPosicao() utiliza a posição atual do aventureiro e o comando inserido para calcular a nova posição pretendida, validando se a célula de destino está dentro dos limites do mapa e se não é uma parede ('#'). Se o movimento for válido, ele retorna as novas coordenadas; caso contrário, uma exceção é lançada e a jogada é ignorada. Essa estrutura permite que o jogo reaja adequadamente a comandos inválidos, mantendo a integridade do sistema e proporcionando uma jogabilidade mais segura e controlada.
 #####  Aplicações da Programação Orientada a Objetos
 Encapsulamento: todas as estruturas internas (mapa, lista de itens, perigos) são manipuladas apenas por métodos públicos, protegendo a integridade do jogo.
+
 Composição: o labirinto é composto por Item, Perigo e um Aventureiro, que interagem por meio de métodos como verificarItem() e verificarPerigo().
+
 Abstração: o uso de LabirintoFactory esconde os detalhes de construção e facilita o uso da classe principal.
+
 Coleções: a classe Labirinto utiliza listas genéricas do tipo ArrayList para representar dinamicamente os elementos interativos do jogo.
+
 Polimorfismo: possibilita chamar aplicarEfeito() sem saber se o objeto é uma Água ou Tesouro, por exemplo.
 ### jogo
 O pacote jogo concentra as classes responsáveis por iniciar o jogo, exibir o menu, controlar o tempo e integrar todos os outros pacotes. É nele que está localizada a Main, além de componentes auxiliares como o menu principal, o temporizador e a exibição de status.
@@ -145,8 +150,11 @@ A classe Main, localizada no pacote jogo, é o ponto de entrada da aplicação e
 O jogo inclui um easter egg que recompensa o jogador por concluir o desafio com um desempenho excepcional. Esse easter egg é ativado quando o jogador encontra o tesouro dentro de um tempo considerado “perfeito”, de acordo com a dificuldade escolhida. O código do easter egg está implementado diretamente dentro da lógica de vitória, na classe Main.java, logo após o jogador encontrar o tesouro. A verificação é feita com base no tempo total da partida, utilizando o Temporizador, que é iniciado no começo da sessão e parado no momento da vitória. O tempo total em segundos é então comparado com um limite específico para cada dificuldade: 10 segundos para o nível fácil, 15 para o médio e 20 para o difícil. Caso o jogador vença dentro desse intervalo, o sistema imprime uma mensagem especial no console: "Vitória Perfeita! [Nome] dominou as Areias do Destino!". O trecho responsável por essa verificação está estruturado com um switch que analisa a dificuldade escolhida e define se a vitória se enquadra como “perfeita”. A lógica está integrada ao fluxo padrão do jogo, sem interferir na funcionalidade do ranking, e atua apenas como uma recompensa adicional para o desempenho rápido e estratégico do jogador. Essa funcionalidade é simples, mas eficaz, e adiciona um toque de desafio e surpresa ao jogo, incentivando múltiplas tentativas e otimizando o tempo de conclusão.
 ##### Aplicações da Programação Orientada a Objetos
 Encapsulamento: Cada classe do pacote jogo encapsula uma responsabilidade distinta: Temporizador gerencia o tempo de forma independente. Menu lida exclusivamente com a interação inicial do usuário. ExibidorStatus concentra toda a exibição das informações do jogador. Os atributos são privados e só acessados por meio de métodos públicos, protegendo os dados internos.
+
 Abstração: As interfaces oferecidas pelas classes (iniciar(), parar(), mostrarStatus(), lerComando(), etc.) escondem os detalhes de implementação e expõem apenas o necessário.
+
 Reutilização: Menu e ExibidorStatus também podem ser facilmente reaproveitados em outros projetos de console com pouca ou nenhuma modificação.
+
 Polimorfismo: Objetos do tipo Item ou Perigo são manipulados de forma genérica. Isso permite aplicar efeitos (aplicarEfeito) sem saber o tipo específico do objeto.
 
 
