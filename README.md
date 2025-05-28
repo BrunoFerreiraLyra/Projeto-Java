@@ -25,7 +25,7 @@ No começo é perguntado o nome do aventureiro, logo depois o jogador tem a opç
 - Ranking com nome e tempo de conclusão para cada dificuldade
 - Exibidor dos status do jogador sendo atualizados e exibidos a cada jogada
 - Tratamento de erro para comandos inválidos
-- Easter Egg: Se o jogador alcançar o tesouro em determinado tempo, é exibida uma mensagem especial de vitória perfeita (esse tempo varia de acordo com a dificuldade)
+- Easter Egg: Se o jogador alcançar o tesouro em determinado tempo, é exibida uma mensagem especial de vitória perfeita (esse tempo varia de acordo com a dificuldade, Fácil: até 10 segundos, Médio: até 15 segundos, Difícil até 20 segundos )
 ##### Legenda do jogo:
 - '#' - Parede, determina os limites do labirinto
 - ' ' - Caminho livre, espaço livre para movimentação
