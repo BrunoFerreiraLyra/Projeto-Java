@@ -110,3 +110,8 @@ Encapsulamento: os atributos são privados, e só podem ser acessados ou modific
 ### ranking
 O pacote ranking é responsável por armazenar, organizar e exibir os resultados dos jogadores que venceram o jogo, levando em conta o tempo de conclusão e a dificuldade escolhida.
 #### Registro.java 
+Representa um registro de vitória. Armazena o nome do jogador, o tempo (em segundos) e a dificuldade correspondente. Também inclui um método para formatar o tempo em minutos e segundos, facilitando a exibição no ranking.
+#### Ranking.java
+Responsável por manter e exibir os rankings separados por dificuldade. Usa um Map<Dificuldade, List<Registro>> para armazenar os resultados de forma categorizada. Também implementa a ordenação dos registros por tempo, do menor para o maior, garantindo que os jogadores mais rápidos apareçam primeiro.
+#####  Aplicações da Programação Orientada a Objetos
+Encapsulamento: os registros e a estrutura interna do ranking estão protegidos; interações externas ocorrem apenas por métodos públicos (adicionarRegistro(), mostrarRanking()).
