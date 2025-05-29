@@ -136,6 +136,9 @@ Abstração: o uso de LabirintoFactory esconde os detalhes de construção e fac
 Coleções: a classe Labirinto utiliza listas genéricas do tipo ArrayList para representar dinamicamente os elementos interativos do jogo.
 
 Polimorfismo: possibilita chamar aplicarEfeito() sem saber se o objeto é uma Água ou Tesouro, por exemplo.
+
+Tratamento de Exceções: garantir que apenas comandos válidos sejam aceitos e que o jogo continue funcionando mesmo em caso de erro do jogador. Quando o jogador digita um comando de movimentação, o método lerComando() verifica se a entrada está entre os caracteres permitidos (W, A, S, D). Caso contrário, uma exceção personalizada é lançada com uma mensagem explicativa, como: "Comando inválido. Use W, A, S ou D.".
+Além disso, o método calcularNovaPosicao() verifica se a nova posição está dentro dos limites do labirinto e se a célula de destino não é uma parede. Se a posição for inválida, uma nova exceção é lançada, impedindo a movimentação e mantendo o aventureiro seguro.
 ### jogo
 O pacote jogo concentra as classes responsáveis por iniciar o jogo, exibir o menu, controlar o tempo e integrar todos os outros pacotes. É nele que está localizada a Main, além de componentes auxiliares como o menu principal, o temporizador e a exibição de status.
 #### Menu.java
