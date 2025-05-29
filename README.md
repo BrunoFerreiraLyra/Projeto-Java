@@ -1,6 +1,7 @@
 # Areias do destino
-#### Programação orientada a objetos
-#### Grupo: Bruno Ferreira de Andrade Lyra 852103. - Projeto 2°GQ 
+
+![image](https://github.com/user-attachments/assets/a0b58d5d-536f-4483-896d-338ebe9027fa)
+
 
 ## Sobre o jogo
  Em Areias do destino jogador assume o papel de um aventureiro que precisa cruzar o caminho no deserto até chegar no tesouro. Porém a cada movimento o avnetureiro sente a dificuldade de andar no clima do deserto, e por isso precisa coletar Águas espalhadas pelo labirinto para conseguir concluir a sua rota até o tesouro. No Labirinto o jogador precisa ficar atendo para não encostar em Cactos que ficam espalhados pelo mapa, caso ele encoste em um sofrerá dano, dificultando a chegar no seu destino final. Diante da situação o aventureiro terá que se mover de forma estratégica para conseguir evitar Cactos e coletar Águas para conseguir ter vida suficiente e chegar no tesouro.
