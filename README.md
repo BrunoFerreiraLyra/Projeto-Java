@@ -121,23 +121,23 @@ Encapsulamento: os registros e a estrutura interna do ranking estão protegidos;
 O pacote labirinto é o núcleo estrutural do jogo. Ele concentra toda a lógica da criação do mapa, posicionamento do aventureiro, interação com itens e perigos, e exibição do cenário no console. Ele também define o tamanho do labirinto com base na dificuldade e garante que o jogo responda visualmente a cada jogada. A geração do labirinto acontece dentro do método private void gerarLabirinto(). Esse método é chamado automaticamente pelo construtor da classe Labirinto, e ele é responsável por construir todo o mapa do jogo antes da primeira jogada começar.
 #### Labirinto.java
 - **Responsabilidade central:** controla a estrutura física do jogo e toda a lógica de interação com o ambiente.
-- **Geração automática:** o método `gerarLabirinto()` é chamado assim que a classe é instanciada.
+- **Geração automática:** o método gerarLabirinto() é chamado assim que a classe é instanciada.
 - **Criação do mapa:**
-  - Utiliza uma matriz bidimensional de caracteres (`char[][]`).
-  - O tamanho da matriz é definido com base na dificuldade (Fácil, Médio ou Difícil) usando a enum `Dificuldade`.
+  - Utiliza uma matriz bidimensional de caracteres (char[][]).
+  - O tamanho da matriz é definido com base na dificuldade (Fácil, Médio ou Difícil) usando a enum Dificuldade.
 - **Construção do labirinto:**
-  - Bordas são preenchidas com `#` (paredes) para limitar o mapa.
-  - Células internas são preenchidas com `' '` (espaços livres) para permitir movimentação.
+  - Bordas são preenchidas com # (paredes) para limitar o mapa.
+  - Células internas são preenchidas com ' ' (espaços livres) para permitir movimentação.
 - **Geração de obstáculos:**
-  - Cactos (`*`) são gerados em 10% da área total do mapa.
+  - Cactos ( * ) são gerados em 10% da área total do mapa.
   - São posicionados aleatoriamente em locais livres.
 - **Geração de itens:**
-  - Águas (`Á`) são geradas com base na fórmula:  
-    `Math.max(5, (linhas + colunas - 4) / 5)`.
+  - Águas ( Á ) são geradas com base na fórmula:  
+    Math.max(5, (linhas + colunas - 4) / 5).
   - Essa lógica garante equilíbrio entre dificuldade e possibilidade de cura.
 - **Posições fixas:**
-  - O aventureiro começa sempre na posição `(1, 1)`.
-  - O tesouro é posicionado na última célula disponível do mapa: `(linhas - 2, colunas - 2)`.
+  - O aventureiro começa sempre na posição (1, 1).
+  - O tesouro é posicionado na última célula disponível do mapa: (linhas - 2, colunas - 2).
 - **Objetivo garantido:** sempre existe um caminho possível entre o início e o tesouro, mesmo com elementos aleatórios no mapa.
 #### LabirintoFactory.java
 Uma fábrica que cria labirintos com base na dificuldade escolhida. Centraliza a criação do objeto Labirinto, melhorando a legibilidade da Main.
@@ -147,13 +147,13 @@ Enumeração que define três níveis de dificuldade (FÁCIL, MÉDIO, DIFÍCIL),
 - **Função principal:** interpreta os comandos de movimentação do jogador e verifica se o movimento é permitido no labirinto.
 - **Papel no sistema:** atua como um intermediário entre o jogador e o mapa, garantindo que o personagem:
   - Não ultrapasse os limites do labirinto.
-  - Não atravesse paredes (`#`).
-- **Método `lerComando()`**
+  - Não atravesse paredes ( # ).
+- **Método lerComando()**
   - Lê o comando inserido pelo jogador via teclado.
   - Converte a entrada para letra maiúscula.
-  - Verifica se o caractere digitado é válido (`W`, `A`, `S`, `D`).
+  - Verifica se o caractere digitado é válido (W, A, S, D).
   - Lança uma exceção com mensagem amigável se o comando for inválido.
-- **Método `calcularNovaPosicao()`**
+- **Método calcularNovaPosicao()**
   - Recebe o comando e a posição atual do aventureiro.
   - Calcula a nova coordenada com base na direção indicada.
   - Valida se a nova posição:
@@ -181,29 +181,29 @@ Além disso, o método calcularNovaPosicao() verifica se a nova posição está 
 O pacote jogo concentra as classes responsáveis por iniciar o jogo, exibir o menu, controlar o tempo e integrar todos os outros pacotes. É nele que está localizada a Main, além de componentes auxiliares como o menu principal, o temporizador e a exibição de status.
 #### Menu.java
 - **Função principal:** exibir as opções iniciais do jogo e redirecionar o jogador conforme sua escolha.
-- **Método principal: `exibirMenuPrincipal()`**
+- **Método principal: exibirMenuPrincipal()**
   - Exibido assim que o programa é iniciado.
   - Apresenta três opções:
     1. Iniciar o jogo
     2. Visualizar o ranking
     3. Encerrar o programa
 - **Funcionamento:**
-  - Utiliza `Scanner` para capturar a escolha do jogador.
+  - Utiliza Scanner para capturar a escolha do jogador.
   - Redireciona para:
-    - `Main.iniciarJogo()` ao iniciar uma partida.
+    - Main.iniciarJogo() ao iniciar uma partida.
     - Exibição do ranking, com vitórias separadas por dificuldade.
     - Encerramento do jogo, com mensagem de despedida.
 #### Temporizador.java
 - **Função principal:** medir e exibir o tempo de duração de cada partida.
 - **Papel no jogo:** atua como um cronômetro, iniciando no começo da partida e parando no momento da vitória ou derrota.
 - **Funcionamento interno:**
-  - Utiliza o método `System.currentTimeMillis()` para capturar:
-    - A hora de início (`iniciar()`)
-    - A hora de término (`parar()`)
+  - Utiliza o método System.currentTimeMillis() para capturar:
+    - A hora de início (iniciar())
+    - A hora de término (parar())
   - O tempo total é calculado como a diferença entre os dois momentos e convertido em segundos.
 - **Formatos de exibição:**
-  - O método `formatarTempo()` transforma o tempo total em um formato legível (minutos e segundos).
-  - O método `getTempoDecorrido()` permite acompanhar o tempo em tempo real, sendo exibido junto ao status do jogador a cada rodada.
+  - O método formatarTempo() transforma o tempo total em um formato legível (minutos e segundos).
+  - O método getTempoDecorrido() permite acompanhar o tempo em tempo real, sendo exibido junto ao status do jogador a cada rodada.
 #### ExibidorStatus.java 
 - **Função principal:** exibir no console os dados atualizados do aventureiro durante a partida.
 - **Dados exibidos a cada rodada:**
@@ -212,20 +212,20 @@ O pacote jogo concentra as classes responsáveis por iniciar o jogo, exibir o me
   - Posição no labirinto
   - Tempo decorrido desde o início da partida
 - **Método principal:** 
-  - `mostrarStatus(Aventureiro aventureiro, Temporizador temporizador)`
+  - mostrarStatus(Aventureiro aventureiro, Temporizador temporizador)
   - Recebe o aventureiro e o temporizador como parâmetros.
   - Exibe os dados de forma formatada, clara e padronizada, com divisões visuais para facilitar a leitura.
 #### Main.java
 - **Função principal:** atua como o ponto de entrada da aplicação e controla o fluxo geral do jogo.
 - **Responsabilidades principais:**
-  - Exibe o menu principal por meio da classe `Menu`.
-  - Cria o `Labirinto` com base na dificuldade escolhida.
-  - Instancia e posiciona o `Aventureiro` no ponto de partida fixo.
-  - Inicia o `Temporizador` para controle do tempo da partida.
+  - Exibe o menu principal por meio da classe Menu.
+  - Cria o Labirinto com base na dificuldade escolhida.
+  - Instancia e posiciona o Aventureiro no ponto de partida fixo.
+  - Inicia o Temporizador para controle do tempo da partida.
 - **Loop do jogo:**
   - Exibe o labirinto no console.
   - Mostra os status atualizados do jogador.
-  - Processa o comando de movimentação com a ajuda de `ControleMovimento`.
+  - Processa o comando de movimentação com a ajuda de ControleMovimento.
   - Aplica efeitos de perigos e itens após o movimento.
   - Verifica vitória (tesouro alcançado) ou derrota (vida insuficiente).
 - **Pós-partida:**
@@ -243,9 +243,9 @@ O pacote jogo concentra as classes responsáveis por iniciar o jogo, exibir o me
     - **Médio:** até 15 segundos
     - **Difícil:** até 20 segundos
 - **Implementação:**
-  - A lógica está dentro da classe `Main.java`, logo após a verificação de vitória.
-  - Utiliza o `Temporizador` para calcular o tempo total da partida.
-  - Um `switch` compara o tempo com o limite da dificuldade escolhida.
+  - A lógica está dentro da classe Main.java, logo após a verificação de vitória.
+  - Utiliza o Temporizador para calcular o tempo total da partida.
+  - Um switch compara o tempo com o limite da dificuldade escolhida.
 - **Resultado:**
   - Se a condição for satisfeita, é exibida a mensagem especial no console:
     "Vitória Perfeita! [Nome] dominou as Areias do Destino!"
